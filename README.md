@@ -4,9 +4,9 @@ la DIAN, BTW SAS.
 
 **ANTES DE EMPEZAR**
 
-Recomendamos validar la documentacion oficial de Microsoft sobre la compatibilidad de **.NET Standard 2.0** con las demas implentaciones de .NET, con el fin de que pueda identificar si la version de destino de su codigo esta soportada.
+Recomendamos validar la documentación oficial de Microsoft sobre la compatibilidad de **.NET Standard 2.0** con las demas implentaciones de .NET, con el fin de que pueda identificar si la versión de destino de su codigo esta soportada.
 
-Documentacion oficial **[.NET Standard 2.0 ](https://learn.microsoft.com/es-es/dotnet/standard/net-standard?tabs=net-standard-2-0)**
+Documentación oficial Microsoft **[.NET Standard 2.0 ](https://learn.microsoft.com/es-es/dotnet/standard/net-standard?tabs=net-standard-2-0)**
 
 
 ____
@@ -46,10 +46,33 @@ request?.Wait();
 
 **.NET y .NET Core	2.0+**
 ```
+/*Llamado al método Send desde la clase SendDocument.
+ Se carga como parámetro al constructor de SendDocument el ambiente (EnvironmentType) al que se enviará el documento.
+ Se carga al método Send el objeto (DocumentoNomina o BasicStructure) con la información y el tipo de documento (DocumentType).*/
+
+//Instancia de la clase SendDocument.
+ SendDocument sendDocument = new SendDocument(EnvironmentType.UAT);
+
+//Nómina electrónica.
+
+//Objeto del tipo DocumentoNomina cargado con la informacin requerida para el timbrado.
+DocumentoNomina documentoNomina = new ();
+
+//Llamado al metodo Send desde el Objeto sendDocument y captura de respuesta.
+PetitionResponse response = await sendDocument.Send<PetitionResponse>(documentoNomina, DocumentType.Nomina);
+
+//Eventos Radian.
+
+//Objeto del tipo BasicStructure cargado con la informacin requerida para el timbrado.
+BasicStructure basicStructure = new ();
+
+//Llamado al metodo Send desde el Objeto sendDocument y captura de respuesta.
+PetitionResponse response = await sendDocument.Send<PetitionResponse>(basicStructure, DocumentType.Radian);
+
 ```
 ____
 ## Dependencias
-Si se esta referneciando directamenre en su poryecto .NET las DLL de la libreria **FiscalIntegrationCo** es necesario agaregar las siguientes dependencias desde el administrador de paquetes NuGet.
+Si esta referneciando directamenre en su proyecto .NET las DLL de la libreria **FiscalIntegrationCo** es necesario agaregar las siguientes dependencias desde el administrador de paquetes NuGet.
 - Newtonsoft.Json
 - System.Text.Json
 - Microsoft.AspNetCore.Http
@@ -103,7 +126,7 @@ ____
 	result : object
 ```
 ____
-**Estructuras de Nómina Electrónica**
+### Estructuras de Nómina Electrónica
 
 **Estructura de DocumentoNomina (Documento de Nómina)**
 ```
@@ -411,7 +434,7 @@ ____
 ```
 ____
 
-**Estructuras de Eventos RADIAN**
+### Estructuras de Eventos RADIAN
 
 **Estructura de BasicStructure**
 ```
