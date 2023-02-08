@@ -109,7 +109,7 @@ ____
 
 | EnvironmentType Value  | Descripción |
 | ------------- |:-------------:|
-|PRD      | PRODUCCIPIÓN |
+|PRD      | PRODUCCIÓN |
 | HAB     | HABILITACIÓN |
 | UAT     | PRUEBAS |
 | PLT     | PILOTO |
