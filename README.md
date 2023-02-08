@@ -27,6 +27,7 @@ La clase **SendDocument** contiene un método único **Send** para el envio de l
 //Objeto del tipo DocumentoNomina cargado con la informacin requerida para el timbrado.
 DocumentoNomina documentoNomina = new DocumentoNomina();
 
+//Llamado al metodo Send
 var request = new SendDocument(EnvironmentType.UAT).Send<PetitionResponse>(documentoNomina, DocumentType.Nomina);
 request?.Wait();
 
