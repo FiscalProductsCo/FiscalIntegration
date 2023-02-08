@@ -15,37 +15,36 @@ ____
 La clase **SendDocument** contiene un método único **Send** para el envio de los documentos electrónicos, el cual retorna un objeto del tipo **PetitionResponse** (Modelo incluido en la librería) con el estado del envío del documento.
 
 
-**NET Framework 4.7.32+ **
+**NET Framework 4.7.32+**
 
 ```
- //Deserealización de la estructura JSON a un objeto del tipo DocumentoNomina.
- var objeto = JsonConvert.DeserializeObject<DocumentoNomina>(json);
-```
-```
- //Deserealización de la estructura JSON a un objeto del tipo BasicStructure.
- var objeto = JsonConvert.DeserializeObject<BasicStructure>(json);
+ /*Llamado al método Send desde la clase SendDocument.
+ Se carga como parámetro al constructor de SendDocument el ambiente (EnvironmentType) al que se enviará el documento.
+ Se carga al método Send el objeto (DocumentoNomina o BasicStructure) con la información y el tipo de documento (DocumentType).*/
+
+//Nómina electrónica
+
+//Objeto del tipo DocumentoNomina cargado con la informacin requerida para el timbrado.
+DocumentoNomina documentoNomina = new DocumentoNomina();
+
+var request = new SendDocument(EnvironmentType.UAT).Send<PetitionResponse>(documentoNomina, DocumentType.Nomina);
+request?.Wait();
+
+//Eventos Radian
+
+//Objeto del tipo BasicStructure cargado con la informacin requerida para el timbrado.
+BasicStructure basicStructure = new BasicStructure();
+
+//Llamado al metodo Send
+var request = new SendDocument(EnvironmentType.UAT).Send<PetitionResponse>(basicStructure, DocumentType.Radian);
+request?.Wait();
+
+//Captura de la respuesta del tipo PetitionResponse
+  var resultRequest = request?.Result;
 ```
 
-```
- // Llamado desde la clase SendDocument al método Send.
- // Se pasa como parámetro al constructor de SendDocument el ambiente al que se enviará el documento.
- // Al método Send se pasa el objeto con la información y el tipo de documento.
 
- //Nómina electrónica
- var request = new SendDocument(EnvironmentType.UAT).Send<dynamic>(objeto, DocumentType.Nomina);
- request?.Wait();
-
- //Eventos Radian
- var request = new SendDocument(EnvironmentType.UAT).Send<dynamic>(objeto, DocumentType.Radian);
- request?.Wait();
-```
-
-```
- //Captura de la respuesta del tipo PetitionResponse
- var resultXMLERP = request?.Result;
-```
-
-**.NET y .NET Core	2.0+ **
+**.NET y .NET Core	2.0+**
 ```
 ```
 ____
