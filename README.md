@@ -4,7 +4,7 @@ la DIAN, BTW SAS.
 
 *ANTES DE EMPEZAR*
 
-Se recomienda validar la documentación oficial de Microsoft sobre la compatibilidad de *.NET Standard 2.0* con las demas implentaciones de .NET, con el fin de que pueda identificar si la versión de destino de su codigo esta soportada.
+Se recomienda validar la documentación oficial de Microsoft sobre la compatibilidad de `.NET Standard 2.0` con las demas implentaciones de `.NET`, con el fin de que pueda identificar si la versión de destino de su codigo esta soportada.
 
 Documentación oficial Microsoft *[.NET Standard 2.0 ](https://learn.microsoft.com/es-es/dotnet/standard/net-standard?tabs=net-standard-2-0)*
 
@@ -198,7 +198,7 @@ ____
 **Estructura del modelo PetitionResponse**
 
 ```csharp
-	public class PetitionResponse
+public class PetitionResponse
     {
         public bool success { get; set; }
         public string message { get; set; }
@@ -224,7 +224,7 @@ ____
 
 **Estructura de Empleador (Información de la Empresa o Empleador)**
 ```csharp
-	public class Empleador
+public class Empleador
     {
         public string razonSocial { get; set; }
         public string primerApellido { get; set; }
