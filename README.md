@@ -1,4 +1,4 @@
-## FiscalIntegrationCo
+## FiscalIntegrationCo [![NuGet Version](http://img.shields.io/nuget/v/FiscalIntegrationCo .svg?style=flat)](https://www.nuget.org/packages/FiscalIntegrationCo/)
 FiscalIntegrationCo es una librería desarrollada en C# con soporte para `.NET Standar` en su version 2.0, que permite el envío de documentos nómina electrónica y eventos de RADIAN a la DIAN a través de los servicios ofrecidos por el proveedor tecnológico avalado por 
 la DIAN, BTW SAS.
 
