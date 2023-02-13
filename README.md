@@ -41,7 +41,7 @@ var request = new SendDocument(EnvironmentType.UAT).Send<PetitionResponse>(basic
 request?.Wait();
 
 //Captura de la respuesta del tipo PetitionResponse
-  var resultRequest = request?.Result;
+var resultRequest = request?.Result;
 ```
 
 **.NET y .NET Core	2.0+**
@@ -136,19 +136,33 @@ private readonly SendDocument _sendDocument;
 //Se debe asignar el valor a la propiedad anteriormente declarada.
 
 public WeatherForecastController(SendDocument sendDocument)
-        {
-            _sendDocument = sendDocument;
-        }
+{
+   _sendDocument = sendDocument;
+}
 //Se debe crear un endpoint del tipo Post en el cual se recibe por URL el tipo de documento a enviar y por Body la información del documento a emitir
 //Como respuesta se retorna la información en un objeto del tipo PetitionResponse
 //Se realiza llamado al método Send, asignado los  parametros correspondientes
 
 [HttpPost("SendDocument/{documentType}")]
-        public async Task<PetitionResponse> Post([FromBody] DocumentoNomina documentoNomina, DocumentType documentType)
-        {
-            return await sendDocument1.Send<PetitionResponse>(documentoNomina, documentType);
-        }
+public async Task<PetitionResponse> Post([FromBody] DocumentoNomina documentoNomina, DocumentType documentType)
+{
+  return await sendDocument1.Send<PetitionResponse>(documentoNomina, documentType);
+}
 ```      
+**Archivo de configuración `librarysettings.json`**
+
+Para el correcto funcionamiento de la liberia es necesario agregar en la raiz de su proyecto un archivo JSON
+con nombre `librarysettings.json`, en este se debe configurar un objeto el cual indica el ambiente al cual se realizaran
+los timbrados. El valor a cargar en el campo `EnvironmentType` esta descrito en la columna `Enum Index` de la tabla 
+`Descripción de los ambientes` según aplique.
+```json
+{
+  "EnvironmentTypeSettings": {
+    "EnvironmentType": "2" 
+  }
+}
+```
+En este ejemplo el valor `2` corresponde al ambiente `UAT` (`PRUEBAS`).
 
 ____
 ### Dependencias
@@ -186,13 +200,13 @@ ____
 
 **Descripción de los ambientes**
 
-| EnvironmentType Value  | Descripción |
-| ------------- |:-------------:|
-|PRD      | PRODUCCIÓN |
-| HAB     | HABILITACIÓN |
-| UAT     | PRUEBAS |
-| PLT     | PILOTO |
-| NA      | NO APLICA |
+| EnvironmentType Value  | Descripción | Enum Index |
+| ------------- |:-------------:|:-------------:|
+|PRD      | PRODUCCIÓN | 0 |
+| HAB     | HABILITACIÓN | 1 |
+| UAT     | PRUEBAS | 2 |
+| PLT     | PILOTO | 3 |
+| NA      | NO APLICA | 4 |
 
 
 **Estructura del modelo PetitionResponse**
