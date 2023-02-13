@@ -28,7 +28,7 @@ La clase `SendDocument` contiene un método único `Send` para el envio de los d
 DocumentoNomina documentoNomina = new DocumentoNomina();
 
 //Llamado al metodo Send
-var request = new SendDocument(EnvironmentType.UAT).Send<PetitionResponse>(documentoNomina, DocumentType.Nomina);
+var request = new SendDocument().Send<PetitionResponse>(documentoNomina, DocumentType.Nomina);
 request?.Wait();
 
 //Eventos Radian
@@ -37,7 +37,7 @@ request?.Wait();
 BasicStructure basicStructure = new BasicStructure();
 
 //Llamado al metodo Send
-var request = new SendDocument(EnvironmentType.UAT).Send<PetitionResponse>(basicStructure, DocumentType.Radian);
+var request = new SendDocument().Send<PetitionResponse>(basicStructure, DocumentType.Radian);
 request?.Wait();
 
 //Captura de la respuesta del tipo PetitionResponse
@@ -51,7 +51,7 @@ var resultRequest = request?.Result;
  Se carga al método Send el objeto (DocumentoNomina o BasicStructure) con la información y el tipo de documento (DocumentType).*/
 
 //Instancia de la clase SendDocument.
- SendDocument sendDocument = new SendDocument(EnvironmentType.UAT);
+ SendDocument sendDocument = new SendDocument();
 
 //Nómina electrónica.
 
@@ -146,7 +146,7 @@ public WeatherForecastController(SendDocument sendDocument)
 [HttpPost("SendDocument/{documentType}")]
 public async Task<PetitionResponse> Post([FromBody] DocumentoNomina documentoNomina, DocumentType documentType)
 {
-  return await sendDocument1.Send<PetitionResponse>(documentoNomina, documentType);
+  return await _sendDocument.Send<PetitionResponse>(documentoNomina, documentType);
 }
 ```      
 **Archivo de configuración `librarysettings.json`**
