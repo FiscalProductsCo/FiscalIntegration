@@ -85,9 +85,7 @@ using Fiscal.Library.Models.InputModels;
 
 //Realizar inyeccion de la clase SendDocument
 
-builder.Services.AddSingleton<SendDocument>(A => {
-    return new(EnvironmentType.UAT);
-});
+builder.Services.AddSingleton<SendDocument>();
 
 //Si el código no ha sido modificado, debe verse asi
 
