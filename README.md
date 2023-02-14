@@ -161,23 +161,6 @@ los timbrados. El valor a cargar en el campo `EnvironmentType` esta descrito en 
 En este ejemplo el valor `2` corresponde al ambiente `UAT` (`PRUEBAS`).
 
 ____
-### Dependencias
-Si esta referenciando directamente en su proyecto `.NET` las `DLL` de la librería `FiscalIntegrationCo` es necesario agaregar las siguientes dependencias desde el administrador de paquetes `NuGet`.
-- Newtonsoft.Json
-- System.Text.Json
-- Microsoft.AspNetCore.Http
-- Microsoft.Extensions.Hosting
-- Microsoft.AspNetCore.Http.Abstractions
-- Microsoft.CSharp
-- Microsoft.Extensions.Http
-- Newtonsoft.Json.Bson
-- Polly
-- Polly.Extensions.Http
-- RestSharp
-- Serilog
-- System.Net.Http
-- System.Threading.Tasks
-____
 
 ### Modelos incluídos en la librería 
 
