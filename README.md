@@ -1,4 +1,4 @@
-## FiscalIntegrationCo [![NuGet Version](http://img.shields.io/nuget/v/FiscalIntegrationCo.svg?style=flat)](https://www.nuget.org/packages/FiscalIntegrationCo/)
+## FiscalIntegrationCo [![NuGet Version](http://img.shields.io/nuget/v/Fiscal.Library.Core.svg?style=flat)](https://www.nuget.org/packages/Fiscal.Library.Core/) [![NuGet Downloads](https://img.shields.io/nuget/dt/Fiscal.Library.Core.svg)](https://www.nuget.org/packages/Fiscal.Library.Core/)
 FiscalIntegrationCo es una librería desarrollada en C# con soporte para `.NET Standar` en su version 2.0, que permite el envío de documentos nómina electrónica y eventos de RADIAN a la DIAN a través de los servicios ofrecidos por el proveedor tecnológico avalado por 
 la DIAN, BTW SAS.
 
@@ -10,6 +10,14 @@ Documentación oficial Microsoft *[.NET Standard 2.0 ](https://learn.microsoft.c
 
 
 ____
+## Instalación de la libreria (`Paquete Nuget`)
+
+Para instalar la libreria en su proyecto .NET, se debe agregar la referencia / dependencia desde el administrador de paquetes `Nuget`,
+para esto debe buscar en la opción `Examinar` el paquete `Fiscal.Library.Core` y proceder a instalarlo.
+
+Paquete Nuget de la libreria FiscalIntegrationCo *[Fiscal.Library.Core](https://www.nuget.org/packages/Fiscal.Library.Core)*
+
+----
 ## USO
 
 La clase `SendDocument` contiene un método único `Send` para el envio de los documentos electrónicos, el cual retorna un objeto del tipo `PetitionResponse` (Modelo incluido en la librería) con el estado del envío del documento.
@@ -148,18 +156,24 @@ public async Task<PetitionResponse> Post([FromBody] DocumentoNomina documentoNom
 **Archivo de configuración `librarysettings.json`**
 
 Para el correcto funcionamiento de la liberia es necesario agregar en la raiz de su proyecto un archivo JSON
-con nombre `librarysettings.json`, en este se debe configurar un objeto el cual indica el ambiente al cual se realizaran
-los timbrados. El valor a cargar en el campo `EnvironmentType` esta descrito en la columna `Enum Index` de la tabla 
-`Descripción de los ambientes` según aplique.
+con nombre `librarysettings.json`, en este se debe configurar un objeto `EnvironmentTypeSettings` el cual indica 
+el ambiente al que se realizaran los timbrados. El valor a cargar en el campo `EnvironmentType` esta descrito en la 
+columna `Enum Index` de la tabla `Descripción de los ambientes` según aplique. Tambien se debe configurar un objeto 
+`AuthenticationSettings` el cual indica las credenciales requeridas para la conexion a los servicios de timbrado, 
+en este se indican los campos usuario (`Username`) y contraseña (`Password`).
 ```json
 {
   "EnvironmentTypeSettings": {
-    "EnvironmentType": "2" 
+    "EnvironmentType": "2"
+  },
+  "AuthenticationSettings": {
+    "Username": "",
+    "Password": ""
   }
 }
 ```
 En este ejemplo el valor `2` corresponde al ambiente `UAT` (`PRUEBAS`).
-
+Los valores a cargar en los campos `Username` y `Password` son proporcionados por el proveedor tecnológico `BTW SAS`.
 ____
 
 ### Modelos incluídos en la librería 
