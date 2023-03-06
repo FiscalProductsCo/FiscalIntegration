@@ -1013,3 +1013,17 @@ public class FromAttachment
     public System.DateTime? EffectiveDate { get; set; }
 }	
 ```
+
+## FiscalIntegrationCo para JavaScript y TypeScript
+
+### JavaScript
+
+[![NPM Version](https://img.shields.io/npm/v/fiscalintegrationcojs?style=flat)](https://www.npmjs.com/package/fiscalintegrationcojs) ![npm](https://img.shields.io/npm/dw/fiscalintegrationcojs)
+
+Paquete oficial NPM *[FiscalIntegrationCoJS](https://www.npmjs.com/package/fiscalintegrationcojs)*
+
+### TypeScript
+
+[![NPM Version](https://img.shields.io/npm/v/fiscalintegrationcots?style=flat)](https://www.npmjs.com/package/fiscalintegrationcots) ![npm](https://img.shields.io/npm/dw/fiscalintegrationcots)
+
+Paquete oficial NPM *[FiscalIntegrationCoTS](https://www.npmjs.com/package/fiscalintegrationcots)*
