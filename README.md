@@ -27,7 +27,6 @@ La clase `SendDocument` contiene un método único `Send` para el envio de los d
 
 ```csharp
  /*Llamado al método Send desde la clase SendDocument.
- Se carga como parámetro al constructor de SendDocument el ambiente (EnvironmentType) al que se enviará el documento.
  Se carga al método Send el objeto (DocumentoNomina o BasicStructure) con la información y el tipo de documento (DocumentType).*/
 
 //Nómina electrónica
@@ -55,7 +54,6 @@ var resultRequest = request?.Result;
 **.NET y .NET Core	2.0+**
 ```csharp
 /*Llamado al método Send desde la clase SendDocument.
- Se carga como parámetro al constructor de SendDocument el ambiente (EnvironmentType) al que se enviará el documento.
  Se carga al método Send el objeto (DocumentoNomina o BasicStructure) con la información y el tipo de documento (DocumentType).*/
 
 //Instancia de la clase SendDocument.
@@ -201,6 +199,12 @@ ____
 | PLT     | PILOTO | 3 |
 | NA      | NO APLICA | 4 |
 
+**Descripción de los tipos de documento**
+
+| DocumentType Value  | Descripción | Enum Index |
+| ------------- |:-------------:|:-------------:|
+|Nomina      | Nomina | 0 |
+|Radian     | Radian | 1 |
 
 **Estructura del modelo PetitionResponse**
 
