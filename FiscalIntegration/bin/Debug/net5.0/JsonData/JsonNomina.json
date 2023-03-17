@@ -1,0 +1,119 @@
+{
+	"Empleador": {
+		"RazonSocial": "ALMACEN MIL VANIDADES",
+		"PrimerApellido": null,
+		"SegundoApellido": null,
+		"PrimerNombre": null,
+		"OtrosNombres": null,
+		"NIT": "42745872",
+		"DV": "6",
+		"Pais": "CO",
+		"DepartamentoEstado": "05",
+		"MunicipioCiudad": "05360",
+		"Direccion": "CL 52 50 51"
+	},
+	"Trabajadores": [
+		{
+			"Trabajador": {
+				"TipoTrabajador": "01",
+				"SubTipoTrabajador": "00",
+				"FechaIngreso": "2021-01-11",
+				"_fechaRetiro": null,
+				"FechaRetiro": null,
+				"TiempoLaborado": "28",
+				"AltoRiesgoPension": false,
+				"TipoDocumento": "13",
+				"NumeroDocumento": "43093252",
+				"PrimerApellido": "MONTOYA",
+				"SegundoApellido": "RAMIREZ",
+				"PrimerNombre": "NANCY",
+				"OtrosNombres": "ADRIANA",
+				"LugarTrabajoPais": "CO",
+				"LugarTrabajoMunicipioCiudad": "05360",
+				"LugarTrabajoDepartamentoEstado": "05",
+				"LugarTrabajoDireccion": "CLL 21 57-79 BARRIO SANTA FE",
+				"SalarioIntegral": false,
+				"TipoContrato": 1,
+				"Sueldo": 908526.0,
+				"CodigoTrabajador": "",
+				"Email": "montoyanancyadriana@gmail.com"
+			},
+			"NumeroSecuenciaXML": {
+				"Prefijo": "NE",
+				"Consecutivo": "72",
+				"Numero": "NE72"
+			},
+			"InformacionGeneral": {
+				"FechaGen": "2023-03-03T07:32:52",
+				"FechaPagoInicio": "2023-02-01",
+				"FechaPagoFin": "2023-02-28",
+				"TipoNomina": "102",
+				"PeriodoNomina": "1",
+				"TipoMoneda": "COP",
+				"TipoNota": null,
+				"Notas": "",
+				"NumDocNovedad": "",
+				"TRM": 1.0,
+				"DevengadosTotal": 1300000.0,
+				"DeduccionesTotal": 92800.0,
+				"ComprobanteTotal": 1207200.0
+			},
+			"DocumentRef": {
+				"NumRef": "0",
+				"FechaGenPred": "0001-01-01",
+				"CUNERef": ""
+			},
+			"FechasPagos": [
+				{
+					"Fecha": "2023-02-28T10:00:00"
+				}
+			],
+			"BasicoDevengados": {
+				"DiasTrabajados": 28,
+				"SueldoTrabajado": 1160000.0
+			},
+			"Cesantias": null,
+			"Compensaciones": [],
+			"Deducciones": [
+				{
+					"Tipo": 2,
+					"Porcentaje": 4.0,
+					"ValorBase": 1160000.0,
+					"Deduccion": 46400.0,
+					"Descripcion": ""
+				},
+				{
+					"Tipo": 1,
+					"Porcentaje": 4.0,
+					"ValorBase": 1160000.0,
+					"Deduccion": 46400.0,
+					"Descripcion": ""
+				}
+			],
+			"Devengados": [],
+			"FondoSP": [],
+			"HorasExtras": [],
+			"HuelgasLegales": [],
+			"Notas": [],
+			"OtrasDeducciones": [],
+			"OtrosConceptos": [],
+			"OtrosDevengados": [],
+			"Pago": {
+				"Forma": 1,
+				"Metodo": "10",
+				"Banco": "",
+				"TipoCuenta": "",
+				"NumeroCuenta": ""
+			},
+			"Primas": [],
+			"Sanciones": [],
+			"Transporte": [
+				{
+					"AuxilioTransporte": 140000.0,
+					"ViaticoManuAlojS": 0.0,
+					"ViaticoManuAlojNS": 0.0
+				}
+			]
+		}
+	]
+}
