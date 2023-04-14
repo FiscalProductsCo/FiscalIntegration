@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0HTE4rH8BAUiU/2KOvsRhvAZkmL1EnDAz1luLjBGbK35JqSKiGfefPTdZIcIEygaBef2/VfvnpnXjDvXMxoJiA==",
+  "dgSpecHash": "toFaYAdYiHlry4RIPGyzvoJ8U/TzAAOz9PxUgLunQgwuaDIGbYXZ5O287yCLz26Kd+myHKQr5xLEixXjYpj9tw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ingmarlonm\\Documents\\Marlon Murcia\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj",
+  "projectFilePath": "C:\\Users\\ingmarlonm\\source\\repos\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ingmarlonm\\.nuget\\packages\\clientconfiguration.common\\1.0.1\\clientconfiguration.common.1.0.1.nupkg.sha512",
     "C:\\Users\\ingmarlonm\\.nuget\\packages\\clientconfiguration.core\\1.0.2\\clientconfiguration.core.1.0.2.nupkg.sha512",
