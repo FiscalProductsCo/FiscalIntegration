@@ -15,8 +15,11 @@ namespace FiscalIntegrationNC
         static async Task Main(string[] args)
         {
 
-            //Se instancia la clase SendDocument instalada en la libreria la cual posee los métodos de envío
+            //Se instancian las clase SendDocument instalada en la libreria la cual posee los métodos de envío 
+            //PetitionResponse modelo que retorna el método de envío
+
             SendDocument sendDIAN = new SendDocument();
+
             PetitionResponse request = new PetitionResponse();
 
             //---------------------------------------------NOMINA-----------------------------------------------------//
@@ -32,10 +35,10 @@ namespace FiscalIntegrationNC
 
             //-----------------------------------------------RADIAN-----------------------------------------------------//
 
-            //Se crea el modelo DocumentoNomina y se carga la información a través del método estático GetDocument
+            //Se crea el modelo documento Radian y se carga la información a través del método estático GetDocument
             BasicStructure docRadian = (BasicStructure)GetDocument(DocumentType.Radian);
 
-            //Se realiza el envio de la nómina mediante el método Send expuesto por la librería
+            //Se realiza el envio del evento mediante el método Send expuesto por la librería
             request = await sendDIAN.Send<PetitionResponse>(docRadian, DocumentType.Radian);
 
             //Se captura el PetitionResponse.Result de la petición
