@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ingmarlonm\\Documents\\Marlon Murcia\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj": {}
+    "C:\\Users\\ingmarlonm\\source\\repos\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ingmarlonm\\Documents\\Marlon Murcia\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj": {
+    "C:\\Users\\ingmarlonm\\source\\repos\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ingmarlonm\\Documents\\Marlon Murcia\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj",
+        "projectUniqueName": "C:\\Users\\ingmarlonm\\source\\repos\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj",
         "projectName": "FiscalIntegration",
-        "projectPath": "C:\\Users\\ingmarlonm\\Documents\\Marlon Murcia\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj",
+        "projectPath": "C:\\Users\\ingmarlonm\\source\\repos\\FiscalIntegration\\FiscalIntegration\\FiscalIntegration.csproj",
         "packagesPath": "C:\\Users\\ingmarlonm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ingmarlonm\\Documents\\Marlon Murcia\\FiscalIntegration\\FiscalIntegration\\obj\\",
+        "outputPath": "C:\\Users\\ingmarlonm\\source\\repos\\FiscalIntegration\\FiscalIntegration\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\ingmarlonm\\Documents": {},
           "C:\\Users\\ingmarlonm\\source\\repos\\sharedsrc\\FEBTW.Shared.Models\\bin\\Release": {},
           "C:\\Users\\ingmarlonm\\source\\repos\\sharedsrc\\FEBTW.SharedSrc\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
@@ -71,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.115\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.116\\RuntimeIdentifierGraph.json"
         }
       }
     }
