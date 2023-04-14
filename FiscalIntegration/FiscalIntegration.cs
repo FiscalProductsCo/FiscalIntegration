@@ -15,59 +15,24 @@ namespace FiscalIntegrationNC
         static async Task Main(string[] args)
         {
 
-            //Se instancian las clase SendDocument instalada en la libreria la cual posee los métodos de envío 
-            //PetitionResponse modelo que retorna el método de envío
-
-            SendDocument sendDIAN = new SendDocument();
-
-            PetitionResponse request = new PetitionResponse();
-
-            //---------------------------------------------NOMINA-----------------------------------------------------//
-
-            //Se crea el modelo DocumentoNomina y se carga la información a través del método estático GetDocument
-            DocumentoNomina docNe = (DocumentoNomina)GetDocument(DocumentType.Nomina);
-
-            //Se realiza el envio de la nómina mediante el método Send expuesto por la librería
-            request = await sendDIAN.Send<PetitionResponse>(docNe, DocumentType.Nomina);
-
-            //Se captura el PetitionResponse.Result de la petición
-            var resultRequesNet = request?.result;
-
-            //-----------------------------------------------RADIAN-----------------------------------------------------//
-
-            //Se crea el modelo documento Radian y se carga la información a través del método estático GetDocument
-            BasicStructure docRadian = (BasicStructure)GetDocument(DocumentType.Radian);
-
-            //Se realiza el envio del evento mediante el método Send expuesto por la librería
-            request = await sendDIAN.Send<PetitionResponse>(docRadian, DocumentType.Radian);
-
-            //Se captura el PetitionResponse.Result de la petición
-            var resultRequestRadian = request?.result;
-        }
-
-        public static object GetDocument(DocumentType documentType)
-        {
-            switch (documentType)
+            //Se crean los modelos de Nomina y Radian
+            DocumentoNomina documentoNomina = new DocumentoNomina()
             {
-                case DocumentType.Nomina:
-
-                    DocumentoNomina documentoNomina = new DocumentoNomina()
-                    {
-                        empleador = new Empleador()
-                        {
-                            razonSocial = "",
-                            primerApellido = "",
-                            segundoApellido = "",
-                            primerNombre = "",
-                            otrosNombres = "",
-                            nit = "",
-                            dv = "",
-                            pais = "",
-                            departamentoEstado = "",
-                            municipioCiudad = "",
-                            direccion = "",
-                        },
-                        trabajadores = new List<Trabajadores>
+                empleador = new Empleador()
+                {
+                    razonSocial = "",
+                    primerApellido = "",
+                    segundoApellido = "",
+                    primerNombre = "",
+                    otrosNombres = "",
+                    nit = "",
+                    dv = "",
+                    pais = "",
+                    departamentoEstado = "",
+                    municipioCiudad = "",
+                    direccion = "",
+                },
+                trabajadores = new List<Trabajadores>
                         {
                             new Trabajadores
                             {
@@ -105,17 +70,17 @@ namespace FiscalIntegrationNC
                                 informacionGeneral = new InformacionGeneral
                                 {
                                     comprobanteTotal = 2000000,
-                                    deduccionesTotal = 12333, 
+                                    deduccionesTotal = 12333,
                                     devengadosTotal = 233233,
                                     fechaGen = "",
                                     fechaPagoFin = "",
-                                    fechaPagoInicio = "", 
-                                    notas = "", 
+                                    fechaPagoInicio = "",
+                                    notas = "",
                                     numDocNovedad= "",
                                     periodoNomina = "",
                                     tipoMoneda = "",
                                     tipoNomina = "",
-                                    tipoNota = "", 
+                                    tipoNota = "",
                                     trm = 0,
                                 },
                                 documentRef = new DocumentRef
@@ -251,7 +216,7 @@ namespace FiscalIntegrationNC
                                 pago = new Pago
                                 {
                                     banco = "",
-                                    forma = 0, 
+                                    forma = 0,
                                     metodo = "",
                                     numeroCuenta = "",
                                     tipoCuenta = "",
@@ -282,41 +247,37 @@ namespace FiscalIntegrationNC
                                         viaticoManuAlojS = 0,
                                     }
                                 }
-                            },                           
+                            },
                         }
-                    };
-
-                    return documentoNomina;
-                case DocumentType.Radian:
-
-                    BasicStructure basicStructure = new BasicStructure()
-                    {
-                        FromHead = new FromHead
-                        {
-                            ID = "",
-                            IssueDate = null,
-                            ResponseCode = "",
-                            ResponseCodeListID = "",
-                            OperationType_c = "",
-                            CustomizationSchemeID = "",
-                            EffectiveDateMandate = null,
-                            PublicEffectiveDate = null,
-                            Email = "",
-                            ConsecutiveTerm = "",
-                            Attachment = "",
-                            ValidityNote = "",
-                            CurrencyCode = "",
-                        },
-                        FromSenderTaxScheme = new FromSenderTaxScheme
-                        {
-                            CompanyID = "",
-                            Currency1 = "",
-                            OrganizationIDType = "",
-                            RegistrationName = "",
-                            SenderIDType = "",
-                            StockAmount1 = 0,
-                        },
-                        FromSenderParty = new List<FromSenderParty>
+            };
+            BasicStructure basicStructure = new BasicStructure()
+            {
+                FromHead = new FromHead
+                {
+                    ID = "",
+                    IssueDate = null,
+                    ResponseCode = "",
+                    ResponseCodeListID = "",
+                    OperationType_c = "",
+                    CustomizationSchemeID = "",
+                    EffectiveDateMandate = null,
+                    PublicEffectiveDate = null,
+                    Email = "",
+                    ConsecutiveTerm = "",
+                    Attachment = "",
+                    ValidityNote = "",
+                    CurrencyCode = "",
+                },
+                FromSenderTaxScheme = new FromSenderTaxScheme
+                {
+                    CompanyID = "",
+                    Currency1 = "",
+                    OrganizationIDType = "",
+                    RegistrationName = "",
+                    SenderIDType = "",
+                    StockAmount1 = 0,
+                },
+                FromSenderParty = new List<FromSenderParty>
                         {
                             new FromSenderParty
                             {
@@ -330,7 +291,7 @@ namespace FiscalIntegrationNC
                             }
 
                         },
-                        FromReceiverTaxScheme = new List<FromReceiverTaxScheme>
+                FromReceiverTaxScheme = new List<FromReceiverTaxScheme>
                         {
                             new FromReceiverTaxScheme
                             {
@@ -342,7 +303,7 @@ namespace FiscalIntegrationNC
                                 StockAmount1 = 0
                             }
                         },
-                        FromReceiverParty = new List<FromReceiverParty>
+                FromReceiverParty = new List<FromReceiverParty>
                         {
                             new FromReceiverParty
                             {
@@ -355,7 +316,7 @@ namespace FiscalIntegrationNC
                                 StockAmount = 0,
                             }
                         },
-                        FromIssuerParty = new List<FromIssuerParty>
+                FromIssuerParty = new List<FromIssuerParty>
                         {
                             new FromIssuerParty
                             {
@@ -366,7 +327,7 @@ namespace FiscalIntegrationNC
                                 StockAmount = 0,
                             }
                         },
-                        FromDRIssuerLegalEntity = new List<FromDRIssuerLegalEntity>
+                FromDRIssuerLegalEntity = new List<FromDRIssuerLegalEntity>
                         {
                             new FromDRIssuerLegalEntity
                             {
@@ -378,7 +339,7 @@ namespace FiscalIntegrationNC
                                 StockAmount1 = 0,
                             }
                         },
-                        FromSenderLegalEntity = new List<FromSenderLegalEntity>
+                FromSenderLegalEntity = new List<FromSenderLegalEntity>
                         {
                             new FromSenderLegalEntity
                             {
@@ -390,7 +351,7 @@ namespace FiscalIntegrationNC
                                 StockAmount1 = 0,
                             }
                         },
-                        FromReceiverLegalEntity = new List<FromReceiverLegalEntity>
+                FromReceiverLegalEntity = new List<FromReceiverLegalEntity>
                         {
                             new FromReceiverLegalEntity
                             {
@@ -403,7 +364,7 @@ namespace FiscalIntegrationNC
                                 StockAmount1 = 0,
                             }
                         },
-                        FromCustomTagGeneral = new List<FromCustomTagGeneral>
+                FromCustomTagGeneral = new List<FromCustomTagGeneral>
                         {
                             new FromCustomTagGeneral
                             {
@@ -411,7 +372,7 @@ namespace FiscalIntegrationNC
                                 Value = "",
                             }
                         },
-                        FromDRPerson = new List<FromDRPerson>
+                FromDRPerson = new List<FromDRPerson>
                         {
                             new FromDRPerson
                             {
@@ -424,7 +385,7 @@ namespace FiscalIntegrationNC
                                 Nationality = "",
                             }
                         },
-                        FromSenderPerson = new List<FromSenderPerson>
+                FromSenderPerson = new List<FromSenderPerson>
                         {
                             new FromSenderPerson
                             {
@@ -435,9 +396,9 @@ namespace FiscalIntegrationNC
                                 JobTitle = "",
                                 Nationality = "",
                                 OrganizationDepartment = "",
-                            }                        
+                            }
                         },
-                        FromReceiverPerson = new List<FromReceiverPerson>
+                FromReceiverPerson = new List<FromReceiverPerson>
                         {
                           new FromReceiverPerson
                           {
@@ -450,7 +411,7 @@ namespace FiscalIntegrationNC
                               OrganizationDepartment = "",
                           }
                         },
-                        FromSenderPAttorney = new List<FromSenderPAttorney>
+                FromSenderPAttorney = new List<FromSenderPAttorney>
                         {
                             new FromSenderPAttorney
                             {
@@ -460,7 +421,7 @@ namespace FiscalIntegrationNC
                                 Description = "",
                             }
                         },
-                        FromDRIssuerPAttorney = new List<FromDRIssuerPAttorney>
+                FromDRIssuerPAttorney = new List<FromDRIssuerPAttorney>
                         {
                             new FromDRIssuerPAttorney
                             {
@@ -470,7 +431,7 @@ namespace FiscalIntegrationNC
                                 Description = "",
                             }
                         },
-                        FromDRIssuerPAttorneyPerson = new List<FromDRIssuerPAttorneyPerson>
+                FromDRIssuerPAttorneyPerson = new List<FromDRIssuerPAttorneyPerson>
                         {
                             new FromDRIssuerPAttorneyPerson
                             {
@@ -483,7 +444,7 @@ namespace FiscalIntegrationNC
                                 Nationality = "",
                             }
                         },
-                        FromDRIssuerTaxScheme = new List<FromDRIssuerTaxScheme>
+                FromDRIssuerTaxScheme = new List<FromDRIssuerTaxScheme>
                         {
                             new FromDRIssuerTaxScheme
                             {
@@ -494,7 +455,7 @@ namespace FiscalIntegrationNC
                                 StockAmount = 0,
                             }
                         },
-                        FromDocumentReference = new List<FromDocumentReference>
+                FromDocumentReference = new List<FromDocumentReference>
                         {
                             new FromDocumentReference
                             {
@@ -509,14 +470,14 @@ namespace FiscalIntegrationNC
 
                             }
                         },
-                        Notes = new List<FromNote>
+                Notes = new List<FromNote>
                         {
                             new FromNote
                             {
                                 Note = "",
                             }
                         },
-                        FromAttachment = new List<FromAttachment>
+                FromAttachment = new List<FromAttachment>
                         {
                             new FromAttachment
                             {
@@ -527,12 +488,29 @@ namespace FiscalIntegrationNC
                                 EffectiveDate = null,
                             }
                         }
-                    };
+            };
 
-                    return basicStructure;
-                default:
-                    return null;
-            }
+            //Se instancian las clase SendDocument instalada en la libreria la cual posee los métodos de envío 
+            //PetitionResponse modelo que retorna el método de envío
+
+            SendDocument sendDIAN = new SendDocument();
+            PetitionResponse request = new PetitionResponse();
+
+            //---------------------------------------------NOMINA-----------------------------------------------------//
+
+            //Se realiza el envio de la nómina mediante el método Send expuesto por la librería
+            request = await sendDIAN.Send<PetitionResponse>(documentoNomina, DocumentType.Nomina);
+
+            //Se captura el PetitionResponse.Result de la petición
+            var resultRequestNe = request?.result;
+
+            //-----------------------------------------------RADIAN-----------------------------------------------------//
+
+            //Se realiza el envio del evento mediante el método Send expuesto por la librería
+            request = await sendDIAN.Send<PetitionResponse>(basicStructure, DocumentType.Radian);
+
+            //Se captura el PetitionResponse.Result de la petición
+            var resultRequestRadian = request?.result;
         }
     }
 }
