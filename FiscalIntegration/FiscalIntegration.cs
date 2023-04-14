@@ -15,22 +15,22 @@ namespace FiscalIntegrationNC
         static async Task Main(string[] args)
         {
 
-            //Se crean los modelos de Nomina y Radian
+            //Se crea el modelo de Nomina 
             DocumentoNomina documentoNomina = new DocumentoNomina()
             {
                 empleador = new Empleador()
                 {
-                    razonSocial = "",
-                    primerApellido = "",
-                    segundoApellido = "",
-                    primerNombre = "",
-                    otrosNombres = "",
-                    nit = "",
-                    dv = "",
-                    pais = "",
-                    departamentoEstado = "",
-                    municipioCiudad = "",
-                    direccion = "",
+                    razonSocial = "BYTHEWAVE SAS",  //Razón social de la empresa 
+                    primerApellido = null,
+                    segundoApellido = null,
+                    primerNombre = null,
+                    otrosNombres = null,
+                    nit = "900665411",              //NIT de la empresa 
+                    dv = "2",                       //Dígito de verificación
+                    pais = "CO",
+                    departamentoEstado = "05",
+                    municipioCiudad = "05001",
+                    direccion = "Calle 49 Sur 45A 300 Oficina 2009 Centro",
                 },
                 trabajadores = new List<Trabajadores>
                         {
@@ -38,103 +38,103 @@ namespace FiscalIntegrationNC
                             {
                                 trabajador = new Trabajador
                                 {
-                                    tipoTrabajador = "",
-                                    subTipoTrabajador = "",
-                                    fechaIngreso = "",
+                                    tipoTrabajador = "01",      //Corresponde a la clasificación de PILA para conocer en que calidad se realizan las cotizaciones a la seguridad social. 
+                                    subTipoTrabajador = "00",   //Corresponde a una sub clasificación de PILA para conocer en que calidad se realizan las cotizaciones a la seguridad social.
+                                    fechaIngreso = "2020-01-01",          
                                     _fechaRetiro = null,
-                                    fechaRetiro = "",
-                                    tiempoLaborado = "",
+                                    fechaRetiro = null,
+                                    tiempoLaborado = null,
                                     altoRiesgoPension = false,
-                                    tipoDocumento = "",
-                                    numeroDocumento = "",
-                                    primerApellido = "",
-                                    segundoApellido = "",
-                                    primerNombre = "",
-                                    otrosNombres = "",
-                                    lugarTrabajoPais = "",
-                                    lugarTrabajoMunicipioCiudad = "",
-                                    lugarTrabajoDepartamentoEstado  = "",
-                                    lugarTrabajoDireccion  = "",
+                                    tipoDocumento = "13",             //Tipo de documento de identificación que actualmente tiene el trabajador o aprendiz
+                                    numeroDocumento = "1002339948",   //Debe ir el Numero de documento del trabajador, sin puntos ni comas ni espacios
+                                    primerApellido = "Test",
+                                    segundoApellido = "Test",
+                                    primerNombre = "Test",
+                                    otrosNombres = "Test",
+                                    lugarTrabajoPais = "CO",                    //Código del país actual donde se encontraba ubicado el trabajador o aprendiz en el mes reportado. Se debe colocar el Codigo alfa-2
+                                    lugarTrabajoMunicipioCiudad = "05088",      //Código del departamento actual donde se encontraba ubicado el trabajador o aprendiz en el mes reportado.
+                                    lugarTrabajoDepartamentoEstado  = "05",     //Código del municipio o ciudad actual donde se encontraba ubicado el trabajador o aprendiz en el mes reportado.
+                                    lugarTrabajoDireccion  = "cl 49 sur 45 a 300 envigado",
                                     salarioIntegral  = false,
-                                    tipoContrato = 1,
-                                    sueldo = 2000000,
-                                    codigoTrabajador = "",
+                                    tipoContrato = 1,           //1. Termino Fijo  - 2.Término Indefinido  - 3. Obra o Labor - 4. Aprendizaje - 5. Prácticas
+                                    sueldo = 2000000,           
+                                    codigoTrabajador = "",      //Campo Opcional queda a manejo Interno del Empleador.
                                     email = "",
                                 },
                                 numeroSecuenciaXML = new NumeroSecuenciaXML
                                 {
-                                    consecutivo = "",
-                                    numero = "",
-                                    prefijo = "",
+                                    prefijo = "NE",        //Debe corresponder a un Prefijo elegido por el Emisor del documento
+                                    consecutivo = "1",     //Debe corresponder a un Consecutivo elegido por el Emisor del documento
+                                    numero = "NE1",        //Debe corresponder al Prefijo y consecutivo manejado por el Empleador - No se permiten caracteres adicionales como espacios o guiones. Prefijo + Número
                                 },
                                 informacionGeneral = new InformacionGeneral
                                 {
-                                    comprobanteTotal = 2000000,
-                                    deduccionesTotal = 12333,
-                                    devengadosTotal = 233233,
-                                    fechaGen = "",
-                                    fechaPagoFin = "",
-                                    fechaPagoInicio = "",
-                                    notas = "",
-                                    numDocNovedad= "",
-                                    periodoNomina = "",
-                                    tipoMoneda = "",
-                                    tipoNomina = "",
-                                    tipoNota = "",
+                                    comprobanteTotal = 220900,      //Debe ser la Diferencia entre DevengadosTotal - DeduccionesTotal
+                                    deduccionesTotal = 12333,       //Debe ir el valor Total de Todos las Deducciones del Trabajador   
+                                    devengadosTotal = 233233,       //Debe ir el valor Total de Todos los Devengados del Trabajador
+                                    fechaGen = "2023-03-10",        //Fecha de emisión: Fecha de emisión del documento. AAAA-MM-DDTHH:mm:ss
+                                    fechaPagoFin = "2023-02-28",    //Fecha fin del pago. AAAA-MM-DDTHH:mm:ss
+                                    fechaPagoInicio = "2023-02-01",       //Fecha de inicio del pago. AAAA-MM-DDTHH:mm:ss
+                                    notas = "",                           //Campo de libre uso para Observaciones en el documento
+                                    numDocNovedad= null,                //Indica si existe alguna Novedad Contractual en el Documento Soporte de Pago de Nómina Electrónica
+                                    periodoNomina = "4",                //1 Semanal - 2 Decenal - 3 Catorcenal - 4 Quincenal - 5 Mensual
+                                    tipoMoneda = "COP",
+                                    tipoNomina = "102",                 //Corresponde al Codigo de Tipo de Nómina - 102 Nomina Individual 103 Nomina Individual de Ajuste
+                                    tipoNota = null,                    //Corresponde al tipo de Nota de Ajuste de Documento Soporte de Pago de Nómina Electrónica 
                                     trm = 0,
                                 },
                                 documentRef = new DocumentRef
                                 {
-                                    cuneRef = "",
-                                    fechaGenPred = null,
-                                    numRef = "",
+                                    cuneRef = null,         //Debe corresponder al Numero de Documento Soporte de Pago de Nómina Electrónica a Reemplazar o eliminar
+                                    fechaGenPred = null,    //Debe ir la fecha del documento a Reemplazar o eliminar, en formato AAAA-MM-DD
+                                    numRef = null,          //Debe ir el CUNE del documento a Reemplazar o eliminar
                                 },
                                 fechasPagos = new List<FechasPago>
                                 {
                                     new FechasPago
                                     {
-                                        fecha = ""
+                                        fecha = "2022-08-31"    //Fecha en el que se realizó el pago
                                     }
                                 },
                                 basicoDevengados = new BasicoDevengados
                                 {
-                                    diasTrabajados = 2,
-                                    sueldoTrabajado = 1232
+                                    diasTrabajados = 23,
+                                    sueldoTrabajado = 1116664
                                 },
                                 cesantias = new Cesantias
                                 {
-                                    pago = 1233,
-                                    pagoIntereses = 12313,
-                                    porcentaje = 0
+                                    pago = 130907,
+                                    pagoIntereses = 1265,
+                                    porcentaje = 0.97m
                                 },
                                 compensaciones = new List<Compensaciones>
                                 {
                                     new Compensaciones
                                     {
-                                        compensacionE = 0,
-                                        compensacionO = 0
+                                        compensacionE = null,
+                                        compensacionO = null
                                     }
                                 },
                                 deducciones = new List<Deducciones>
                                 {
                                     new Deducciones
                                     {
-                                        porcentaje = 0,
-                                        deduccion = 0,
-                                        descripcion = "",
-                                        tipo = 1,
-                                        valorBase = 0,
+                                        porcentaje = 4.00m,
+                                        deduccion = 58296,
+                                        descripcion = "",   //Descripción del tipo de deducción opcional
+                                        tipo = 1,           //código de clasificación de las deducciones ya sea salud, fondoPension, Sindicato, Libranza, PagoTerceros, Anticipos
+                                        valorBase = 1206644,
                                     }
                                 },
                                 devengados = new List<Devengados>
                                 {
                                     new Devengados
                                     {
-                                        tipo = 1,
-                                        cantidad = 0,
-                                        fechaFin = "",
-                                        fechaInicio = "",
-                                        pago = 0,
+                                        tipo = 2,       //código de clasificación de los devengados
+                                        cantidad = 1,
+                                        fechaFin = null,
+                                        fechaInicio = null,
+                                        pago = 48588,
                                         _fechaFin = DateTime.Now,
                                     }
                                 },
@@ -142,60 +142,67 @@ namespace FiscalIntegrationNC
                                 {
                                     new FondoSP
                                     {
-                                        deduccionSP = 0,
-                                        deduccionSub = 0,
-                                        porcentaje = 0,
-                                        porcentajeSub = 0
+                                        deduccionSP = 20378,    //Todo trabajador que devengue un sueldo que sea igual o superior a 4 salarios mininos, debe aportar un 1% al Fondo de solidaridad pensional.
+                                        deduccionSub = 20377,   //Valor Pagado correspondiente a Fondo de Subsistencia por parte del trabajador
+                                        porcentaje = 0.50m,     //Debe corresponder al porcentaje de deducción de fondo de seguridad pensional que paga el trabajador
+                                        porcentajeSub = 0.50m   //Se debe colocar el Porcentaje que correspondiente al Fondo de Subsistencia correspondiente
                                     }
                                 },
                                 horasExtras = new List<HorasExtras>
                                 {
                                     new HorasExtras
                                     {
-
+                                        tipo = "HEDs",      //Clasificación de horas extras en este ejemplo HEDs se usa para Horas Extras Diarias
+                                        horaInicio = null,  //En formato YYYY-MM-DDTHH:MM:SS
+                                        horaFin = null,     //En formato YYYY-MM-DDTHH:MM:SS
+                                        cantidad = 4,       //Cantidad de Horas, Debe ser la diferencia entre HoraInicio y HoraFin
+                                        porcentaje = 25,    //Porcentaje según clasificación de horas extras
+                                        pago = 28909,       //Es el valor pagado por el tiempo que se trabaja adicional a la jornada legal
                                     }
                                 },
                                 huelgasLegales = new List<HuelgasLegales>
                                 {
                                     new HuelgasLegales
                                     {
-
+                                        fechaInicio = null,
+                                        fechaFin = null,
+                                        cantidad = null                                        
                                     }
                                 },
                                 notas = new List<Nota>
                                 {
                                     new Nota
                                     {
-
+                                        nota = ""      //Campo de libre uso para Observaciones en el documento
                                     }
                                 },
                                 otrasDeducciones = new List<OtrasDeducciones>
                                 {
                                     new OtrasDeducciones
                                     {
-                                        afc = 0,
-                                        anticipo = 0,
-                                        cooperativa = 0,
-                                        deuda = 0,
-                                        educacion = 0,
-                                        embargoFiscal = 0,
-                                        ica = 0,
-                                        otraDeduccion = 0,
-                                        pagoTercero = 0,
-                                        pensionVoluntaria = 0,
-                                        planComplementarios = 0,
-                                        reintegro = 0,
-                                        retencionFuente = 0,
+                                        afc = 0,        //Valor Pagado correspondiente a AFC por parte del trabajador
+                                        anticipo = 0,   //Deduccion por Anticipos de Nómina. Solo aplica cuando el tipo es "6: Anticipos"
+                                        cooperativa = 0,    //Valor Pagado correspondiente a Cooperativas por parte del trabajador
+                                        deuda = 0,          //Valor que se deba pagar por las obligaciones que el empleado tenga con su empresa, como puede ser un crédito que ésta le haya otorgado, o como compensación por algún perjuicio o detrimento económico que el empleado le haya causado a la empresa.
+                                        educacion = 0,      //Valor de servicios educativos que el trabajador autorice descuento
+                                        embargoFiscal = 0,  //Valor Pagado correspondiente aEmbargos Fiscales por parte del trabajador
+                                        ica = 0,            //Valor Pagado correspondiente a ICA por parte del trabajador
+                                        otraDeduccion = 0,  //Otro tipo de deducción dentro de la Nomina.
+                                        pagoTercero = 0,    //Deducciones en cabeza del Trabjador que se pagan a un proveedor o tercero. Solo aplica cuando el tipo es "5: PagosTerceros"
+                                        pensionVoluntaria = 0,      //Valor correspondiente al ahorro que hace el trabajador para complementar su pension obligatoria o cumplir metas especificas.
+                                        planComplementarios = 0,    //Valor de planes complementarios de salud al que el trabajador se encuentran afiliado, siempre que medie autorización del empleado.
+                                        reintegro = 0,              //Valor que le regresa la empresa al trabajador por una deducción mal realizada en otro pago de nómina
+                                        retencionFuente = 0,        //Valor Pagado correspondiente a Retención en la Fuente por parte del trabajador
                                     }
                                 },
                                 otrosConceptos = new List<OtrosConceptos>
                                 {
                                     new OtrosConceptos
                                     {
-                                        conceptoNS = 0,
-                                        conceptoS = 0,
-                                        descripcionConcepto = "",
-                                        tipo = 0,
+                                        conceptoNS = 0,     //Valor Pagado por Conceptos No Salariales
+                                        conceptoS = 0,      //Valor Pagado por Conceptos Salariales
+                                        descripcionConcepto = "",   //Debe ir la Descripcion del Concepto
+                                        tipo = 0, 
                                     }
                                 },
                                 otrosDevengados = new List<OtrosDevengados>
@@ -203,290 +210,51 @@ namespace FiscalIntegrationNC
                                     new OtrosDevengados
                                     {
                                         anticipo = 0,
-                                        apoyoSost = 0,
-                                        bonifRetiro = 0,
-                                        comision = 0,
-                                        dotacion = 0,
-                                        indemnizacion = 0,
-                                        pagoTercero = 0,
-                                        reintegro = 0,
-                                        teletrabajo = 0,
+                                        apoyoSost = 0,      //Valor Pagado por Apoyo a Sostenimiento
+                                        bonifRetiro = 0,    //Valor Pagado por Retiro de la empresa   
+                                        comision = 0,       //Valor Pagado por comisiones
+                                        dotacion = 0,       //Valor Pagado por dotacion
+                                        indemnizacion = 0,  //Valor Pagado por Indemnización
+                                        pagoTercero = 0,    
+                                        reintegro = 0,      //Valor Pagado por Reintegro a la empresa
+                                        teletrabajo = 0,    //Valor Pagado por trabajo en Teletrabajo
                                     }
                                 },
                                 pago = new Pago
                                 {
-                                    banco = "",
-                                    forma = 0,
-                                    metodo = "",
-                                    numeroCuenta = "",
-                                    tipoCuenta = "",
+                                    banco = "",     //Banco
+                                    forma = 1,      //1 para contado - código de clasificación del tipo de pago
+                                    metodo = "20",  //Metodos de Pago del Documento según clasificación 
+                                    numeroCuenta = "",  //Numero de Cuenta Bancaria del Empleado donde se realiza la consignación
+                                    tipoCuenta = "A",   //Tipo de Cuenta Bancaria del Empleado donde se realiza la consignación
                                 },
                                 primas = new List<Primas>
                                 {
                                     new Primas
                                     {
-                                        cantidad = 0,
-                                        pago = 0,
-                                        pagoNS = 0,
+                                        cantidad = 0,   //Cantidad de dias trabajados para calculo de Pago de Corte de Prima
+                                        pago = 0,       //Valor Pagado por Prima Legal con respecto a Cantidad de Dias
+                                        pagoNS = 0,     //Valor Pagado por Prima No Salarial
                                     }
                                 },
                                 sanciones = new List<Sanciones>
                                 {
                                     new Sanciones
                                     {
-                                        sancionPriv = 0,
-                                        sancionPublic = 0,
+                                        sancionPriv = 0,    //Valor por el del incumplimiento de una regla o norma de conducta obligatoria (Privada o Ordinaria)
+                                        sancionPublic = 0,  //Valor por el del incumplimiento de una regla o norma de conducta obligatoria (Publica)
                                     }
                                 },
                                 transporte = new List<Transporte>
                                 {
                                     new Transporte
                                     {
-                                        auxilioTransporte = 0,
-                                        viaticoManuAlojNS = 0,
-                                        viaticoManuAlojS = 0,
+                                        auxilioTransporte = 0,  
+                                        viaticoManuAlojNS = 0,  //Valor de Viaticos, Manutención y Alojamiento de carácter No Salarial. Parte de los viáticos pagado al trabajador correspondientes a manutención y/o alojamiento No Salariales.
+                                        viaticoManuAlojS = 0,   //Valor de Viaticos, Manutención y Alojamiento de carácter Salarial. Parte de los viáticos pagado al trabajador correspondientes a manutención y/o alojamiento.
                                     }
                                 }
                             },
-                        }
-            };
-            BasicStructure basicStructure = new BasicStructure()
-            {
-                FromHead = new FromHead
-                {
-                    ID = "",
-                    IssueDate = null,
-                    ResponseCode = "",
-                    ResponseCodeListID = "",
-                    OperationType_c = "",
-                    CustomizationSchemeID = "",
-                    EffectiveDateMandate = null,
-                    PublicEffectiveDate = null,
-                    Email = "",
-                    ConsecutiveTerm = "",
-                    Attachment = "",
-                    ValidityNote = "",
-                    CurrencyCode = "",
-                },
-                FromSenderTaxScheme = new FromSenderTaxScheme
-                {
-                    CompanyID = "",
-                    Currency1 = "",
-                    OrganizationIDType = "",
-                    RegistrationName = "",
-                    SenderIDType = "",
-                    StockAmount1 = 0,
-                },
-                FromSenderParty = new List<FromSenderParty>
-                        {
-                            new FromSenderParty
-                            {
-                                ID = "",
-                                SenderIDType = "",
-                                RegistrationName = "",
-                                OrganizationIDType = "",
-                                CompanyLegalFormCode = "",
-                                SenderMandateType = "",
-                                StockAmount = 0,
-                            }
-
-                        },
-                FromReceiverTaxScheme = new List<FromReceiverTaxScheme>
-                        {
-                            new FromReceiverTaxScheme
-                            {
-                                RegistrationName = "",
-                                CompanyID = "",
-                                ReceiverIDType = "",
-                                OrganizationIDType = "",
-                                Currency1 = "",
-                                StockAmount1 = 0
-                            }
-                        },
-                FromReceiverParty = new List<FromReceiverParty>
-                        {
-                            new FromReceiverParty
-                            {
-                                ID = "",
-                                RegistrationName = "",
-                                ReceiverIDType = "",
-                                OrganizationIDType = "",
-                                CompanyLegalFormCode = "",
-                                ReceiverMandateType = "",
-                                StockAmount = 0,
-                            }
-                        },
-                FromIssuerParty = new List<FromIssuerParty>
-                        {
-                            new FromIssuerParty
-                            {
-                                ID = "",
-                                Name = "",
-                                IdentificationType = "",
-                                OrganizationIDType = "",
-                                StockAmount = 0,
-                            }
-                        },
-                FromDRIssuerLegalEntity = new List<FromDRIssuerLegalEntity>
-                        {
-                            new FromDRIssuerLegalEntity
-                            {
-                                ID = "",
-                                Name = "",
-                                IdentificationType = "",
-                                CompanyType_c = "",
-                                Currency1 = "",
-                                StockAmount1 = 0,
-                            }
-                        },
-                FromSenderLegalEntity = new List<FromSenderLegalEntity>
-                        {
-                            new FromSenderLegalEntity
-                            {
-                                ID = "",
-                                Name = "",
-                                IdentificationType = "",
-                                CompanyType_c = "",
-                                Currency1 = "",
-                                StockAmount1 = 0,
-                            }
-                        },
-                FromReceiverLegalEntity = new List<FromReceiverLegalEntity>
-                        {
-                            new FromReceiverLegalEntity
-                            {
-                                LegalFormCode = "",
-                                ID = "",
-                                Name = "",
-                                IdentificationType = "",
-                                CompanyType_c = "",
-                                Currency1 = "",
-                                StockAmount1 = 0,
-                            }
-                        },
-                FromCustomTagGeneral = new List<FromCustomTagGeneral>
-                        {
-                            new FromCustomTagGeneral
-                            {
-                                Name = "",
-                                Value = "",
-                            }
-                        },
-                FromDRPerson = new List<FromDRPerson>
-                        {
-                            new FromDRPerson
-                            {
-                                ID = "",
-                                IssuerIDType = "",
-                                FirstName = "",
-                                FamilyName = "",
-                                JobTitle = "",
-                                OrganizationDepartment = "",
-                                Nationality = "",
-                            }
-                        },
-                FromSenderPerson = new List<FromSenderPerson>
-                        {
-                            new FromSenderPerson
-                            {
-                                ID = "",
-                                IdentificationType = "",
-                                FirstName = "",
-                                FamilyName = "",
-                                JobTitle = "",
-                                Nationality = "",
-                                OrganizationDepartment = "",
-                            }
-                        },
-                FromReceiverPerson = new List<FromReceiverPerson>
-                        {
-                          new FromReceiverPerson
-                          {
-                              ID = "",
-                              IdentificationType = "",
-                              FirstName = "",
-                              FamilyName = "",
-                              JobTitle = "",
-                              Nationality = "",
-                              OrganizationDepartment = "",
-                          }
-                        },
-                FromSenderPAttorney = new List<FromSenderPAttorney>
-                        {
-                            new FromSenderPAttorney
-                            {
-                                ID = "",
-                                IdentificationType = "",
-                                TipoMandante = "",
-                                Description = "",
-                            }
-                        },
-                FromDRIssuerPAttorney = new List<FromDRIssuerPAttorney>
-                        {
-                            new FromDRIssuerPAttorney
-                            {
-                                ID = "",
-                                IdentificationType = "",
-                                TipoMandante = "",
-                                Description = "",
-                            }
-                        },
-                FromDRIssuerPAttorneyPerson = new List<FromDRIssuerPAttorneyPerson>
-                        {
-                            new FromDRIssuerPAttorneyPerson
-                            {
-                                ID = "",
-                                IssuerIDType = "",
-                                FirstName = "",
-                                FamilyName = "",
-                                JobTitle = "",
-                                OrganizationDepartment = "",
-                                Nationality = "",
-                            }
-                        },
-                FromDRIssuerTaxScheme = new List<FromDRIssuerTaxScheme>
-                        {
-                            new FromDRIssuerTaxScheme
-                            {
-                                ID = "",
-                                Name = "",
-                                IdentificationType = "",
-                                OrganizationIDType = "",
-                                StockAmount = 0,
-                            }
-                        },
-                FromDocumentReference = new List<FromDocumentReference>
-                        {
-                            new FromDocumentReference
-                            {
-                                LegalNumRef = "",
-                                CUFERef = "",
-                                DocumentTypeCodeRef = "",
-                                StartDate = null,
-                                EndDate = null,
-                                DescriptionCode = "",
-                                Description = "",
-                                ScopeMandate = "",
-
-                            }
-                        },
-                Notes = new List<FromNote>
-                        {
-                            new FromNote
-                            {
-                                Note = "",
-                            }
-                        },
-                FromAttachment = new List<FromAttachment>
-                        {
-                            new FromAttachment
-                            {
-                                ID = "",
-                                DocumentBinary = "",
-                                ResponseDescription = "",
-                                DocumentDescription = "",
-                                EffectiveDate = null,
-                            }
                         }
             };
 
@@ -503,14 +271,6 @@ namespace FiscalIntegrationNC
 
             //Se captura el PetitionResponse.Result de la petición
             var resultRequestNe = request?.result;
-
-            //-----------------------------------------------RADIAN-----------------------------------------------------//
-
-            //Se realiza el envio del evento mediante el método Send expuesto por la librería
-            request = await sendDIAN.Send<PetitionResponse>(basicStructure, DocumentType.Radian);
-
-            //Se captura el PetitionResponse.Result de la petición
-            var resultRequestRadian = request?.result;
         }
     }
 }
